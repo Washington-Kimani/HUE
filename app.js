@@ -41,38 +41,38 @@ mongoose.connect(url,{
 
 
 //*******OPENAI********
-const config = new Configuration({
-	apiKey: "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",
-});
+// const config = new Configuration({
+// 	apiKey: "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",
+// });
 
-const openai = new OpenAIApi(config);
+// const openai = new OpenAIApi(config);
 
-const runPrompt = async () => {
-	const prompt = `
-        Hello. Return response in the following parsable JSON format:
+// const runPrompt = async () => {
+// 	const prompt = `
+//         Hello. Return response in the following parsable JSON format:
 
-        {
-            "Q": "question",
-            "A": "answer"
-        }
+//         {
+//             "Q": "question",
+//             "A": "answer"
+//         }
 
-    `;
+//     `;
 
-	const response = await openai.createCompletion({
-		model: "text-davinci-002",
-		prompt: prompt,
-		max_tokens: 100,
-		temperature: 1,
-	});
+// 	const response = await openai.createCompletion({
+// 		model: "text-davinci-002",
+// 		prompt: prompt,
+// 		max_tokens: 100,
+// 		temperature: 1,
+// 	});
 
-	const parsableJSONresponse = response.data.choices[0].text;
-	const parsedResponse = bodyParser.json().parse(parsableJSONresponse);
+// 	const parsableJSONresponse = response.data.choices[0].text;
+// 	const parsedResponse = bodyParser.json().parse(parsableJSONresponse);
 
-	console.log("Question: ", parsedResponse.Q);
-	console.log("Answer: ", parsedResponse.A);
-};
+// 	console.log("Question: ", parsedResponse.Q);
+// 	console.log("Answer: ", parsedResponse.A);
+// };
 
-// runPrompt()
+// // runPrompt()
 
 
 
