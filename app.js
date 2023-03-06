@@ -39,72 +39,6 @@ mongoose.connect(url,{
 	console.log('Connected to Database')
 }).catch(err=> console.log(err))
 
-
-//*******OPENAI********
-// const config = new Configuration({
-// 	apiKey: "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",
-// });
-
-// const openai = new OpenAIApi(config);
-
-// const runPrompt = async () => {
-// 	const prompt = `
-//         Hello. Return response in the following parsable JSON format:
-
-//         {
-//             "Q": "question",
-//             "A": "answer"
-//         }
-
-//     `;
-
-// 	const response = await openai.createCompletion({
-// 		model: "text-davinci-002",
-// 		prompt: prompt,
-// 		max_tokens: 100,
-// 		temperature: 1,
-// 	});
-
-// 	const parsableJSONresponse = response.data.choices[0].text;
-// 	const parsedResponse = bodyParser.json().parse(parsableJSONresponse);
-
-// 	console.log("Question: ", parsedResponse.Q);
-// 	console.log("Answer: ", parsedResponse.A);
-// };
-
-// // runPrompt()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //ROUTING
 //route for Homepage
 app.get('/',(req, res)=>{
@@ -113,7 +47,7 @@ app.get('/',(req, res)=>{
 
 //Route for ChatPage 
 app.get('/Chat',(req, res)=>{
-	res.render('Chat',{value: parsableJSONresponse});
+	res.render('Chat');
 });
 
 //Route for To-Do page
