@@ -42,7 +42,7 @@ mongoose.connect(url,{
 
 //*******OPENAI********
 const config = new Configuration({
-	apiKey: "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",
+	apiKey: "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",
 });
 
 const openai = new OpenAIApi(config);
@@ -66,13 +66,13 @@ const runPrompt = async () => {
 	});
 
 	const parsableJSONresponse = response.data.choices[0].text;
-	const parsedResponse = JSON.parse(parsableJSONresponse);
+	const parsedResponse = bodyParser.json().parse(parsableJSONresponse);
 
 	console.log("Question: ", parsedResponse.Q);
 	console.log("Answer: ", parsedResponse.A);
 };
 
-// runPrompt();
+// runPrompt()
 
 
 
@@ -113,7 +113,7 @@ app.get('/',(req, res)=>{
 
 //Route for ChatPage 
 app.get('/Chat',(req, res)=>{
-	res.render('Chat');
+	res.render('Chat',{value: parsableJSONresponse});
 });
 
 //Route for To-Do page
