@@ -71,13 +71,19 @@ nav .loginIcon a {
   text-decoration: none;
 }
 #typed {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 250px;
+  margin-top: 200px;
   font-size: 30px;
   font-weight: bold;
   color: rgb(63, 196, 99);
+}
+#typed img{
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
 }
 @keyframes spin {
   from {
