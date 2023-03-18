@@ -9,7 +9,8 @@ body {
   overflow: hidden;
 }
 .container {
-  background: linear-gradient(rgba(2, 3, 37, 0.7), rgba(2, 3, 37, 0.7)),url('/images/cartoon.avif');
+  background: linear-gradient(rgba(2, 3, 37, 0.7), rgba(2, 3, 37, 0.7)),
+    url("/images/cartoon.avif");
   width: 100%;
   height: 96.5%;
   background-size: cover;
@@ -80,7 +81,7 @@ nav .loginIcon a {
   font-weight: bold;
   color: rgb(63, 196, 99);
 }
-#typed img{
+#typed img {
   position: absolute;
   top: 50%;
   bottom: 50%;
@@ -99,13 +100,12 @@ nav .loginIcon a {
   border-radius: 50%;
   width: 300px;
 }
-#heading{
+#heading {
   color: #ccc;
   font-weight: 700;
   font-size: 30px;
   margin: 300px 20px;
   position: fixed;
-
 }
 footer {
   background: linear-gradient(rgba(2, 3, 37, 0.7), rgba(2, 3, 37, 0.7));
@@ -232,16 +232,22 @@ img.avatar-right {
   border-radius: 50%;
   border: 2px solid #ccc;
 }
-#textIn{
+#textIn {
   position: absolute;
   width: 100%;
   height: auto;
   bottom: 0;
   display: flex;
 }
-#textIn a{
+#textIn a {
   position: absolute;
-  top: 60px;
+  top: 50px;
   right: 20px;
   cursor: pointer;
+  z-index: 2;
+}
+.question{
+  outline: none !important;
+  border: 1px solid pink;
+  
 }

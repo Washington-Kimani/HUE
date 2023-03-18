@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <section class="container forms">
+        <div class="form login">
+            <header>HUE Login</header>
+            <div class="form-content">
+                <form action="/login" method="post" >
+                    <p class="error"><%= value %></p>
+                    <div class="field input-field">
+                        <input placeholder="Name" name="name" type="text" id="input">
+                    </div>
+                    <div class="field input-field">
+                        <input placeholder="Password" name="password" type="password" id="input">
+                    </div>
+                    <div class="field input-field">
+                        <input class="button" type="submit">
+                    </div>
+                    
+                
+                </form>
+                <h3>Dont have a account ?</h3>
+                <a href="/Signup">Create a new account</a>
+            </div>
+        </div>
+    </section>   
+</body>
+<script>
+    const input = document.querySelectorAll('input');
+    window.addEventListener('load',()=>{
+        input.textContent = '';
+    })
+</script>
+</html>
