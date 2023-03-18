@@ -61,7 +61,8 @@ form{
 .field input:focus{
     border-bottom-width: 2px;
 }
-.eye-icon{
+#showIcon,
+#hideIcon{
     position: absolute;
     top: 50%;
     right: 10px;
@@ -70,6 +71,10 @@ form{
     color: #8b8b8b;
     cursor: pointer;
     padding: 5px;
+}
+.fa-eye-slash {
+    display: none;
+    color: #efefef;
 }
 .field .button{
     color: #fff;
