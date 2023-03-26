@@ -4,12 +4,12 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const LogInCollection = require('./Models/mongo');
-const runPrompt = require('./Models/index')
+const Todo = require('./Models/todo')
 
 
 const app = express();
 
-const port = 5000;
+const port = 5002;
 
 //MIDDLEWARE
 //middleware for templating engine
@@ -63,10 +63,39 @@ app.get('/Chat',(req, res)=>{
 });
 
 //Route for To-Do page
-app.get('/To-do',(req,res)=>{
-	res.render('To-do')
+//GET to-dos
+app.get('/Todo',(req,res)=>{
+	Todo.find()
+    .then(result=>{
+        res.render('Todo',{ data: result })
+    })
 })
 
+//POST todos
+app.post('/Todo', (req, res)=>{
+    const todo = new Todo({
+        todo: req.body.todo
+    })
+
+    todo.save().then(()=>{
+        res.redirect('Todo')
+    }).catch(err=>{
+        console.log(err);
+    })
+})
+
+//DELETE todos
+app.delete('/Todo/:id',(req, res)=>{
+    Todo.deleteOne({
+        _id: req.params.id
+    }).then(()=>{
+        res.redirect('/Todo');
+    }).catch(err=>{
+        console.log(err);
+    })
+})
+
+//Route for signing up
 app.post('/Signup', async (req, res) => {
     
     const data = new LogInCollection({
@@ -79,17 +108,20 @@ app.post('/Signup', async (req, res) => {
     const checking = await LogInCollection.findOne({ name: req.body.name })
    try{
     if (checking.name === req.body.name && checking.password===req.body.password) {
-        res.redirect('/');
+        res.send('<h1>Error: 404</h1> <p>User Already Exists!!</p>')
     }
     else{
         await LogInCollection.insertMany([data])
+        res.render('Login')
     }
    }
    catch{
-    res.render('Login')
+    res.send("Something went wrong")
    }
     res.status(201).render("Home");
 })
+
+//Route for Login
 app.post('/Login', async (req, res) => {
     try {
         const check = await LogInCollection.findOne({ name: req.body.name })
@@ -101,10 +133,9 @@ app.post('/Login', async (req, res) => {
         }
     } 
     catch (e) {
-        res.send('ENTER CORRECT DEATAILS!!!!!');
+        res.status(404).send('<h1>Error: 404</h1> <p>User Not Found. Try to sign up first!!</p>');
     }
 })
 
-// runPrompt
-
+//Connect to Server
 app.listen(port,()=>console.log(`Server is running on port ${port}`));

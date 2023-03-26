@@ -13,8 +13,17 @@ btn.addEventListener('click', ()=>{
 recognition.onresult = (event) => {
     const current = event.resultIndex;
     const transcript = event.results[current][0].transcript;
-    question.textContent = transcript;
-    speakThis(transcript.toLowerCase());
+    question.innerHTML = transcript.charAt(0).toUpperCase() + transcript.slice(1);
 }
 
-question.textContent = 'Washington Kimani'
+const form = document.querySelector('form');
+
+form.addEventListener('submit', (event) => {
+
+  const formData = new FormData(form);
+
+  fetch('/submit', {
+    method: 'POST',
+    body: formData
+  })
+});

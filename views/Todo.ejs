@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <title>To-Do List</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text">To-Do List</h1>
+        <form action="/Todo" method="post" autocomplete="off">
+            <input type="text" name="todo" id="todo" placeholder="Add todos..." required autofocus>
+            <button type="submit" class="btn btn-outline-success text-center">Add</button>
+        </form>
+        <%if(data){%>
+            <%data.forEach(todo =>{%>
+                <div class="todo-container">
+                    <div class="todo-value ms-3"><%= todo.todo %> </div>
+                    <div>
+                        <form action="/Todo/<%= todo.id %>?_method=DELETE" method="post">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="submit" value="Delete" class="delete btn btn-danger">
+                        </form>
+                    </div>
+                </div>
+            <%})%>
+        <%}%>
+        </div>
+</body>
+</html>
