@@ -14,12 +14,12 @@
             <header>HUE Login</header>
             <div class="form-content">
                 <form action="/login" method="post" autocomplete="off">
-                    <p class="error"><%= value %></p>
+                    <p class="error"></p>
                     <div class="field input-field">
-                        <input placeholder="Name" name="name" type="text" id="input">
+                        <input placeholder="Name" name="name" type="text" id="input" required>
                     </div>
                     <div class="field input-field">
-                        <input placeholder="Password" name="password" type="password" id="inputField">
+                        <input placeholder="Password" name="password" type="password" id="inputField" required>
                         <i class="fas fa-eye" id="showIcon" onclick="toogleIcon()"></i> <i class="fas fa-eye-slash" id="hideIcon" onclick="toogleIcon()"></i>
                     </div>
                     <div class="field input-field">

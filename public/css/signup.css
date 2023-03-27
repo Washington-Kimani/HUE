@@ -28,7 +28,7 @@
 header{
     font-size: 28px;
     font-weight: 600;
-    color: #232836;
+    color: #fff;
     text-align: center;
 }
 form{
@@ -53,10 +53,12 @@ form{
 .field input{
     outline: none;
     padding: 0 15px;
-    border: 1px solid#CACACA;
+    border: 1px solid #CACACA;
+    background-color: #243b55;
 }
-.field input:focus{
-    border-bottom-width: 2px;
+.field input:not([type="submit"]):focus, form input:not([type="submit"]):valid {
+	background-color: #fff;
+	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 #showIcon,
 #hideIcon{
@@ -75,12 +77,13 @@ form{
 }
 .field .button{
     color: #fff;
-    background-color: #0171d3;
+    border: 1px solid #03e9f4;
+    background-color: transparent;
     transition: all 0.3s ease;
     cursor: pointer;
 }
 .field .button:hover{
-    background-color: #016dcb;
+    background-color: #386d6f;
 }
 .form-link{
     text-align: center;
@@ -143,7 +146,7 @@ a.google{
 }
 a.google span{
     font-weight: 500;
-    color: #232836;
+    color: #fff;
 }
 
 @media screen and (max-width: 400px) {

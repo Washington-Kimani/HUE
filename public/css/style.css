@@ -20,7 +20,7 @@ h1{
     font-size: 3rem;
 }
 input[type = text]{
-    min-width: 600px;
+    min-width: 400px;
     height: 2rem;
     border-radius: 10px 0 10px 0;
     border: solid 1px rgb(54, 108, 39);
@@ -30,6 +30,11 @@ input[type = text]{
     
     font-size: 1rem;
     outline: none;
+}
+input[type="date"]{
+    background: transparent;
+    outline: rgb(54, 108, 39);
+    color: #fff;
 }
 ::placeholder{
     color: orangered;

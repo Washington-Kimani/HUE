@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
-const logInSchema=new mongoose.Schema({
-    name:{
+const userSchema=new mongoose.Schema({
+    username:{
         type:String,
         required:true
     },
@@ -11,6 +11,6 @@ const logInSchema=new mongoose.Schema({
     }
 })
 
-const LogInCollection=new mongoose.model('LogInCollection',logInSchema)
+const User=new mongoose.model('user',userSchema)
 
-module.exports=LogInCollection
+module.exports=User;

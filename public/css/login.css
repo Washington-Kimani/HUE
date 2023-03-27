@@ -58,9 +58,11 @@ form{
     outline: none;
     padding: 0 15px;
     border: 1px solid #CACACA;
+    background: #243b55;
 }
-.field input:focus{
-    border-bottom-width: 2px;
+.field input:not([type="submit"]):focus, form input:not([type="submit"]):valid {
+	background-color: #fff;
+	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 #showIcon,
 #hideIcon{
@@ -85,7 +87,7 @@ form{
     cursor: pointer;
 }
 .field .button:hover{
-    background-color: #03e9f4;
+    background-color: #386d6f;
 }
 .form-link{
     text-align: center;

@@ -18,7 +18,7 @@
         <%if(data){%>
             <%data.forEach(todo =>{%>
                 <div class="todo-container">
-                    <div class="todo-value ms-3"><%= todo.todo %> </div>
+                    <div class="todo-value ms-3"><%= todo.todo %></div>
                     <div>
                         <form action="/Todo/<%= todo.id %>?_method=DELETE" method="post">
                             <input type="hidden" name="_method" value="DELETE">

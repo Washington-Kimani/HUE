@@ -19,21 +19,24 @@ function speak(greetings) {
         let hr = day.getHours();
     
         if(hr >= 0 && hr < 12) {
-            text_speak("Good Morning");
+            const finalText = 'Good Morning';
+            text_speak.speak = finalText;
         }
     
         else if(hr > 12 && hr <= 17) {
-            text_speak("Good Afternoon");
+            const finalText = 'Good Afternoon';
+            text_speak.speak = finalText;
         }
     
         else {
-            text_speak("Good Evening");
+            const finalText = 'Good Afternoon';
+            text_speak.speak = finalText;
         }
     }
     
     window.addEventListener('load', ()=>{
-        text_speak("Activating Inertia");
-        text_speak("Going online");
+        text_speak.speak= "Activating HUE";
+        text_speak.speak = "Going online";
         wishMe();
     })
 }
@@ -165,7 +168,7 @@ function speakThis(message) {
         speech.text = finalText;
     }
     else if(message.includes('open to-do list')){
-        window.open('/Todo')
+        window.open('/Todo', '_blank')
         const finalText = 'Opening your To-dos'
         speech.text = finalText;
     }
